@@ -31,7 +31,19 @@ class ClubController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $club = new Club();
+        $club->nama = $request->nama;
+        $club->pelatih = $request->pelatih;
+        $club->stadion = $request->stadion;
+        $club->pemilik = $request->pemilik;
+        $club->lapangan_latihan = $request->lapangan_latihan;
+        $club->lokasi = $request->lokasi;
+        $club->save();
+        return response()->json([
+            'status' => 'success',
+            'statuscode' => 200,
+            'data' => 'Club berhasil ditambahkan'
+        ], 200);
     }
 
     /**
@@ -54,7 +66,19 @@ class ClubController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $club = Club::find($id);
+        $club->nama = $request->nama;
+        $club->pelatih = $request->pelatih;
+        $club->stadion = $request->stadion;
+        $club->pemilik = $request->pemilik;
+        $club->lapangan_latihan = $request->lapangan_latihan;
+        $club->lokasi = $request->lokasi;
+        $club->save();
+        return response()->json([
+            'status' => 'success',
+            'statuscode' => 200,
+            'data' => 'Club berhasil diubah'
+        ], 200);
     }
 
     /**
