@@ -21,5 +21,6 @@ $router->group(['prefix' => 'api/v1', 'namespace' => 'v1'], function() use ($rou
     $router->post('/clubs', 'ClubController@store');
     $router->put('/clubs/{id}', 'ClubController@update');
     $router->delete('/clubs/{id}', 'ClubController@destroy');
+    $router->get('/clubs/{id}', 'ClubController@show');
 
 });

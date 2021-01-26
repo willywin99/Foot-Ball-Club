@@ -54,7 +54,13 @@ class ClubController extends Controller
      */
     public function show($id)
     {
-        //
+        $club = Club::find($id);
+        return response()->json([
+            'status' => 'success',
+            'statuscode' => '200',
+            // 'data' => 'club berhasil ditampilkan'
+            'data' => $club
+        ], 200);
     }
 
     /**
