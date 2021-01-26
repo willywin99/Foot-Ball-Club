@@ -89,6 +89,12 @@ class ClubController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $club = Club::find($id);
+        $club->delete();
+        return response()->json([
+            'status' => 'success',
+            'statuscode' => 200,
+            'data' => 'Club berhasil dihapus'
+        ], 200);
     }
 }
